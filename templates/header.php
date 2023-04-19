@@ -1,3 +1,13 @@
+<?php
+
+    $mainMenu = [
+        'index.php' => 'Accueil',
+        'nos-recettes.php' => 'Nos recettes',
+        'a-propos.php' => 'A propos',
+
+    ];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,10 +30,11 @@
                 </a>
             </div>
 
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="index.php" class="nav-link px-2 link-secondary">Accueil</a></li>
-                <li><a href="nos-recettes.php" class="nav-link px-2">Nos recettes</a></li>
-                <li><a href="a-propos.php" class="nav-link px-2">A propos</a></li>
+            <ul class="nav nav-pills">
+                <?php foreach($mainMenu as $page=>$titre) { ?>
+                    <li><a href="<?=$page;?>" class="<?php if (basename($_SERVER["SCRIPT_NAME"]) === $page) { echo 'active';} ?> nav-link px-2"><?=$titre; ?></a></li>
+                <?php } ?>
+                
             </ul>
 
             <div class="col-md-3 text-end">
